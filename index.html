@@ -24,7 +24,7 @@
 
                 </div>
 
-                <ul class="nav nav-tabs justify-content-center " id="tabs" role="tablist">
+                <ul class="nav nav-tabs justify-content-center" id="tabs" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="net-tab" data-toggle="tab" href="#net" role="tab" aria-controls="net" aria-selected="true">в Сети</a>
                     </li>
@@ -64,7 +64,7 @@
                     </p>
                     <hr>
                     <h5>Как добавить общедоступный календарь в свой личный календарь?</h5>
-                    1. Откройте сайт <a style="color:blue" href="https://calendar.google.com/">calendar.google.com</a> на компьютере.<br>
+                    1. Откройте сайт <a style="color:blue" href="https://calendar.google.com/" target="blank">calendar.google.com</a> на компьютере.<br>
                     2. Слева внизу экрана в списке календарей найдите пункт "Другие календари" и нажмите на "+".<br>
                     3. В появившимся меню выберите пункт “Добавить по URL”.<br>
                     4. В поле ввода введите URL нужного вам календаря:<br>
@@ -112,7 +112,7 @@
                     <h5>Как добавить общедоступный календарь в приложение на смартфоне?</h5>
                     <p>
                         1. Добавьте нужные календари в свой личный календарь. (описание выше)<br>
-                        2. На своём смартфоне установите свежую версию приложения Google Calendar, запустите его и синхронизируйте данные календаря.<br>
+                        2. На своём смартфоне установите свежую версию приложения <a style="color:blue" href="https://play.google.com/store/apps/details?id=com.google.android.calendar" target="blank">Google Calendar</a>, запустите его и синхронизируйте данные календаря.<br>
                         3. Откройте меню приложения (нажмите на кнопку с тремя полосками в верхнем левом углу) и выберите нужные календари.<br>
                         4. Если календарей в этом списке не оказалось, то в самом низу меню нажмите на пункт “Настройки”.<br>
                         5. Найдите в списке нужный календарь, нажмите на него, затем включите синхронизацию.
@@ -235,27 +235,7 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 
-    <script>
-        function copyToClipboard(elementId) {
 
-            // Create a "hidden" input
-            var aux = document.createElement("input");
-
-            // Assign it the value of the specified element
-            aux.setAttribute("value", document.getElementById(elementId).value);
-
-            // Append it to the body
-            document.body.appendChild(aux);
-
-            // Highlight its content
-            aux.select();
-
-            // Copy the highlighted text
-            document.execCommand("copy");
-
-            // Remove it from the body
-            document.body.removeChild(aux);
-        }
 
     </script>
 </body>
