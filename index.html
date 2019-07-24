@@ -20,7 +20,7 @@
 
                     <span class="h5 text-white"><u>Сводное Расписание</u> </span>
                     <span class="h5 text-white">событий русской культуры, истории и политики</span>
-                    <span class="h5 text-white"><u>прямо в вашем смартфоне</u>.</span>
+                    <span class="h5 text-white"><u>в вашем смартфоне</u>.</span>
 
                 </div>
 
@@ -57,21 +57,22 @@
                 <div class="modal-body">
                     <h5>Что это такое?</h5>
                     <p>
-                        <strong>Сводное расписание</strong> - это несколько общедоступных календарей на платформе Google (calendar.google.com), в которых собраны различные события, имеющие отношение к русской истории и культуре. Помимо этого в расписание попадают мероприятия устраиваемые русскими политическими объединениями, и прочие полезные для русских людей события. </p>
+                        <strong>Сводное расписание (СвоРа) </strong> - это несколько общедоступных календарей на платформе Google (calendar.google.com), в которых собраны различные события, имеющие отношение к русской истории и культуре. Помимо этого в расписание включены мероприятия устраиваемые русскими политическими объединениями и прочие полезные для русских людей события. </p>
                     <p>
-                        Каждый владелец аккаунта Google, а это все владельцы смартфонов на Andriod, уже имеет подобный календарь и может подключать к нему любые общедоступные календари и события из них.
+                        Отличительной особенностью Сводного Расписания является то, что данные календари можно легко подключить к календарю на своём смартфоне. И получать сведения и уведомления обо всех предстоящих событиях.
+
                     </p>
                     <hr>
                     <h5>Как добавить общедоступный календарь в свой личный календарь?</h5>
                     1. Откройте сайт <a style="color:blue" href="https://calendar.google.com/">calendar.google.com</a> на компьютере.<br>
-                    2. В левой части экрана найдите поле для ввода текста “Добавить календарь”, нажмите на кнопку с тремя точка справа от него.<br>
+                    2. Слева внизу экрана в списке календарей найдите пункт "Другие календари" и нажмите на "+".<br>
                     3. В появившимся меню выберите пункт “Добавить по URL”.<br>
                     4. В поле ввода введите URL нужного вам календаря:<br>
                     <span>события в Сети - </span>
-                    <div class="d-inline ">
+                    <div class="d-inline">
 
-                        <input type="text" id="net-cal" value="https://calendar.google.com/calendar/ical/2kpu7kvisrlvmgkiheabippc20%40group.calendar.google.com/public/basic.ics">
-                        <button onclick="copyToClipboard('net-cal')">
+                        <input type="text" id="net-cal" class="adr" value="https://calendar.google.com/calendar/ical/2kpu7kvisrlvmgkiheabippc20%40group.calendar.google.com/public/basic.ics">
+                        <button onclick="document.getElementById('net-cal').select();document.execCommand('copy');">
                             <i class="fas fa-copy"></i>
                         </button>
 
@@ -79,8 +80,8 @@
                     <br>
                     <span>события в Москве - </span>
                     <div class="d-inline">
-                        <input type="text" id="msk-cal" value="https://calendar.google.com/calendar/ical/ct8a4t3tuim1jjnkno2d6skkck%40group.calendar.google.com/public/basic.ics">
-                        <button onclick="copyToClipboard('msk-cal')">
+                        <input type="text" id="msk-cal" class="adr" value="https://calendar.google.com/calendar/ical/ct8a4t3tuim1jjnkno2d6skkck%40group.calendar.google.com/public/basic.ics">
+                        <button onclick="document.getElementById('msk-cal').select();document.execCommand('copy');">
                             <i class="fas fa-copy"></i>
                         </button>
 
@@ -89,8 +90,8 @@
                     <span>события в Санкт-Петербургe - </span>
                     <div class="d-inline">
 
-                        <input type="text" id="spb-cal" value="https://calendar.google.com/calendar/ical/uq550s4cd42vsoojk09patvfvk%40group.calendar.google.com/public/basic.ics">
-                        <button onclick="copyToClipboard('spb-cal')">
+                        <input type="text" id="spb-cal" class="adr" value="https://calendar.google.com/calendar/ical/uq550s4cd42vsoojk09patvfvk%40group.calendar.google.com/public/basic.ics">
+                        <button onclick="document.getElementById('spb-cal').select();document.execCommand('copy');">
                             <i class="fas fa-copy"></i>
                         </button>
 
@@ -99,8 +100,8 @@
                     <span>события в остальной России - </span>
                     <div class="d-inline">
 
-                        <input type="text" id="rest-cal" value="https://calendar.google.com/calendar/ical/fsnvudft85si8k73nrki6i1sv4%40group.calendar.google.com/public/basic.ics">
-                        <button onclick="copyToClipboard('rest-cal')">
+                        <input type="text" id="rest-cal" class="adr" value="https://calendar.google.com/calendar/ical/fsnvudft85si8k73nrki6i1sv4%40group.calendar.google.com/public/basic.ics">
+                        <button onclick="document.getElementById('rest-cal').select();document.execCommand('copy');">
                             <i class="fas fa-copy"></i>
                         </button>
 
@@ -160,12 +161,7 @@
                 <div class="mask rgba-pink-light"></div>
 
             </div>
-            <div class="carousel-item">
-                <div class="mask rgba-pink-light"></div>
 
-
-
-            </div>
 
 
         </div>
@@ -241,13 +237,25 @@
 
     <script>
         function copyToClipboard(elementId) {
+
+            // Create a "hidden" input
             var aux = document.createElement("input");
+
+            // Assign it the value of the specified element
             aux.setAttribute("value", document.getElementById(elementId).value);
+
+            // Append it to the body
             document.body.appendChild(aux);
+
+            // Highlight its content
             aux.select();
+
+            // Copy the highlighted text
             document.execCommand("copy");
+
+            // Remove it from the body
             document.body.removeChild(aux);
-        };
+        }
 
     </script>
 </body>
