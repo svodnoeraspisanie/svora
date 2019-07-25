@@ -4,12 +4,7 @@
       min-height: 100%;
   }
 
-  .container-fluid {
-      position: absolute;
-      top: 100px;
 
-
-  }
 
 
   .nav-tabs {
@@ -24,6 +19,7 @@
   .nav-tabs .nav-link {
       border: 1px solid transparent;
       border-radius: .25rem;
+      padding: 0.1rem 0.5rem;
 
   }
 
@@ -98,7 +94,21 @@
 
 
 
+      .calWrapper {
+          position: relative;
 
+
+          height: 100%;
+
+      }
+
+      .calWrapper iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+      }
 
 
 
@@ -132,24 +142,8 @@
 
       }
 
-      .calendar-small {
-          display: none;
-      }
+ 
 
-      .calWrapper {
-          position: relative;
-
-
-          height: 95%;
-      }
-
-      .calWrapper iframe {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-      }
   }
 
   .toptext {
@@ -160,7 +154,12 @@
     width:100%;
 }
 
-
+ .container-fluid {
+          position: absolute;
+          top: 0;
+          padding:6rem 0 0 0;
+    
+      }
   @media screen and (max-width: 576px) {
       
       .body {
@@ -170,56 +169,94 @@
   height: 100vh;
 }
       .fixed-top {
-          position: initial;
+          position: absolute;
       }
 
       .container-fluid {
-          position: initial;
-          top: auto;
+          position: absolute;
+          top: 0;
+          padding:3.2rem 0 0 0;
+     
       }
 
       .card-body {
 
-          padding: 0rem 0.2rem;
+          padding: 0.3rem 0.1rem;
       }
 
-      .onlydesktop {
-          display: none;
-      }
-
-      .calendar-big {
-          display: none;
-      }
-
-      .calendar-small {
-          width: 100vw;
-          height: 77vh;
-      }
-
-      .title1 {
-
+   
+   
+ 
+      .tab-content{
           width: 100%;
-          text-align: center;
       }
 
-      .title2 {
-          display: none;
-      }
-
-    
-
-      .calWrapper {
-          position: relative;
-
-
-          height: 100%;
-      }
-
-      .calWrapper iframe {
-          position: relative;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-      }
   }
+
+
+#toggle-menu {
+   
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    margin: 0 auto;
+    cursor: pointer;
+    z-index: 1001;
+}
+#toggle-menu span{
+    top: 26px;
+    left: 12px;
+    right: 12px;
+}
+#toggle-menu span, #toggle-menu span:before, #toggle-menu span:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: #fff;
+    transform: rotate(0deg);
+    transition: .3s ease-in-out;
+    height: 3px;
+    background-clip: content-box;
+}
+#toggle-menu span:before {
+    top: -10px;
+    left: -4px;
+    right: -4px;
+}
+#toggle-menu span:after {
+    bottom: -10px;
+    left: -4px;
+    right: -4px;
+}
+#toggle-menu.mobile-active span {
+    background-color: transparent;
+	transition: 0s;
+    }
+    #toggle-menu.mobile-active span:before {
+    transform: rotate(45deg);
+    top: 1px;
+    }
+    #toggle-menu.mobile-active span:after {
+    transform: rotate(-45deg);
+    bottom: -1px;
+    }
+    #toggle-menu.mobile-active {
+    border: none;
+    left: auto;
+    top: 0;
+    right: 0;
+    position: absolute;
+    margin: 0;
+    z-index: 3000;
+    border-radius: 0 0 0 8px;
+    }
+
+
+#tabs.mobile-active {
+    
+    display:block !important;
+padding-top: 1rem;
+}
+
