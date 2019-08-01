@@ -256,11 +256,9 @@
     }
 
 
-#tabs.mobile-active {
-    
-    display:block !important;
-padding-top: 1rem;
-}
+
+
+
 
 @media (max-width: 575px){
         #tabs {
@@ -272,7 +270,7 @@ padding-top: 1rem;
         opacity: 0;
         }
         #tabs.mobile-active {
-        height: 130px;
+        height: 8rem;
         padding-top: 1rem;
         }
         #tabs.mobile-active .nav-item{
