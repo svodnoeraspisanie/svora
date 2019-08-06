@@ -106,27 +106,9 @@
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <span class="hidden-sm-and-down">Свора // Расписание</span>
       </v-toolbar-title>
-         <v-spacer></v-spacer>
 
 
-
-    </v-app-bar>
-
-
-
-
-
-    <v-content>
-      <v-container
-        fluid
-        fill-height
-      >
- <template>
-  <v-layout fill-height>
-    <v-flex>
-      <v-sheet height="64">
-        <v-toolbar flat color="white">
-          <v-btn outlined class="mr-4" @click="setToday">
+<v-btn outlined class="mr-4" @click="setToday">
             Сегодня
           </v-btn>
           <v-btn fab text small @click="prev">
@@ -162,9 +144,24 @@
               </v-list-item>
             </v-list>
           </v-menu>
-        </v-toolbar>
-      </v-sheet>
-      <v-sheet height="600">
+
+    </v-app-bar>
+
+
+
+
+
+    <v-content>
+      <v-container
+
+        fill-height
+      >
+
+
+
+  <v-layout fill-height >
+    <v-flex>
+
         <v-calendar
           ref="calendar"
           v-model="focus"
@@ -221,10 +218,9 @@
             </v-card-actions>
           </v-card>
         </v-menu>
-      </v-sheet>
+
     </v-flex>
   </v-layout>
-</template>
 
 
       </v-container>
