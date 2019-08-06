@@ -19,27 +19,35 @@
       app
         width="300px"
     >
-        <v-list-item>
+
+
+
+
+             <v-list-item>
+
         <v-list-item-content>
+
+
+          <v-list-item-title class="title">
+            Город:
+          </v-list-item-title>
+
+               <v-select
+          :items="city"
+
+        ></v-select>
+              </v-list-item-content>
+      </v-list-item>
+        <v-list-item>
+
+        <v-list-item-content>
+
+
           <v-list-item-title class="title">
             Метки:
           </v-list-item-title>
-              </v-list-item-content>
-      </v-list-item>
 
-
-     <v-container
-      grid-list-md
-     py-0
-    >
-      <v-layout
-        align-center
-        justify-start
-        wrap
-      >
-
-
-        <v-flex
+                <v-flex
           v-for="(selection, i) in selections"
           :key="selection.text"
           shrink
@@ -67,11 +75,12 @@
             label="Поиск"
             single-line
           ></v-text-field>
+             <v-divider v-if="!allSelected"></v-divider>
         </v-flex>
-      </v-layout>
-    </v-container>
 
-    <v-divider v-if="!allSelected"></v-divider>
+
+
+
 
     <v-list>
       <template v-for="(item, i) in categories">
@@ -91,6 +100,9 @@
         </v-list-item>
       </template>
     </v-list>
+
+    </v-list-item-content>
+      </v-list-item>
     </v-navigation-drawer>
 
     <v-app-bar
@@ -253,7 +265,7 @@
   data: () => ({
     dialog: false,
     drawer: null,
-
+city: ['Сеть', 'Москва', 'Санкт-Петербург', 'остальная Россия'],
 
 
        items: [
