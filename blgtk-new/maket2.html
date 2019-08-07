@@ -113,7 +113,7 @@
                     <v-container grid-list-lg fluid>
                         <v-layout wrap>
 
-                            <v-flex xs4 >
+                            <v-flex  v-for="n in 12" :key="n" xs4 >
                                  <v-card >
                                     <v-img
                                         :src="`https://unsplash.it/150/300?image=${Math.floor(Math.random() * 100) + 1}`"
@@ -121,17 +121,16 @@
                                     ></v-img>
 
                                  <v-card-title>
-                                            Хорошее дело 1
+                                            Хорошее дело {{n}}
                                  </v-card-title>
 
                                 <v-card-text class="pt-0 pb-1">
-                                            Здесь краткое описание хорошего дела
+                                            Здесь краткое описание хорошего дела {{n}}
                                         </v-card-text>
                                     <hr>
                                     <v-card-text class="pt-1 pb-1">
                                           Ближайшее мероприятие:
-                                        <br>
-                                        10 августа 2019: <a >Хд-стрим о том как всё хорошо</a>
+                                        {{n}} августа 2019: <a >Хд-стрим о том как всё хорошо</a>
                                         </v-card-text>
                                     <hr>
                                     <v-card-text class="pt-1 pb-2">
