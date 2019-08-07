@@ -112,22 +112,47 @@
                 <v-content>
                     <v-container grid-list-lg fluid>
                         <v-layout wrap>
-                            <v-flex v-for="pr in prlist" :key="pr.id" xs4>
-                                <v-card >
+
+                            <v-flex xs4 >
+                                 <v-card >
                                     <v-img
                                         :src="`https://unsplash.it/150/300?image=${Math.floor(Math.random() * 100) + 1}`"
                                         height="150px"
                                     ></v-img>
 
                                  <v-card-title>
-                                            {{pr.title}}
+                                            Хорошее дело 1
                                  </v-card-title>
-                                <v-card-text >
-                                            {{pr.text}}
+
+                                <v-card-text class="pt-0 pb-1">
+                                            Здесь краткое описание хорошего дела
+                                        </v-card-text>
+                                    <hr>
+                                    <v-card-text class="pt-1 pb-1">
+                                          Ближайшее мероприятие:
+                                        <br>
+                                        10 августа 2019: <a >Хд-стрим о том как всё хорошо</a>
+                                        </v-card-text>
+                                    <hr>
+                                    <v-card-text class="pt-1 pb-2">
+                                          Метки:
+                                        <v-chip small>Тег1</v-chip>
+                                         <v-chip small>Тег2</v-chip>
+                                         <v-chip small>Тег3</v-chip>
+                                         <v-chip small>Тег4</v-chip>
+                                         <v-chip small>Тег5</v-chip>
                                         </v-card-text>
                                 </v-card>
 
                             </v-flex>
+
+
+
+
+
+
+
+
                         </v-layout>
                     </v-container>
                 </v-content>
