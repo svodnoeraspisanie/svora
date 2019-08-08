@@ -150,9 +150,13 @@
                                             dense
                                             :headers="headers"
                                             :items="desserts"
-                                            :items-per-page="5"
+                                            :items-per-page="3"
                                             class="elevation-1"
+                                            hide-default-footer
+                                                      :page.sync="page"
+                                                      @page-count="pageCount = $event"
                                         ></v-data-table>
+                                        <v-pagination v-model="page" :length="pageCount"></v-pagination>
                                     </v-card-text>
                                 </v-card>
                             </v-flex>
@@ -169,6 +173,7 @@
                                             :items="desserts"
                                             :items-per-page="5"
                                             class="elevation-1"
+
                                         ></v-data-table>
                                     </v-card-text>
                                 </v-card>
@@ -221,6 +226,7 @@
                             el: "#app",
                             vuetify: new Vuetify(),
                             data: () => ({
+                                page: 1,
                                 headers: [
                       { text: 'Место',value: 'place' },
                       { text: 'Время', value: 'time' },
