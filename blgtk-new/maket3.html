@@ -151,12 +151,12 @@
                                             :headers="headers"
                                             :items="desserts"
                                             :items-per-page="3"
-                                            class="elevation-1"
+
                                             hide-default-footer
                                                       :page.sync="page"
                                                       @page-count="pageCount = $event"
                                         ></v-data-table>
-                                        <v-pagination v-model="page" :length="pageCount"></v-pagination>
+                                        <v-pagination circle v-model="page" :length="pageCount"></v-pagination>
                                     </v-card-text>
                                 </v-card>
                             </v-flex>
@@ -166,15 +166,18 @@
                                         Завтра
                                     </v-card-title>
 
-                                    <v-card-text>
+                                       <v-card-text>
                                         <v-data-table
                                             dense
                                             :headers="headers"
                                             :items="desserts"
-                                            :items-per-page="5"
-                                            class="elevation-1"
+                                            :items-per-page="3"
 
+                                            hide-default-footer
+                                                      :page.sync="page"
+                                                      @page-count="pageCount = $event"
                                         ></v-data-table>
+                                        <v-pagination circle v-model="page" :length="pageCount"></v-pagination>
                                     </v-card-text>
                                 </v-card>
                             </v-flex>
@@ -227,6 +230,7 @@
                             vuetify: new Vuetify(),
                             data: () => ({
                                 page: 1,
+                                pageCount: 0,
                                 headers: [
                       { text: 'Место',value: 'place' },
                       { text: 'Время', value: 'time' },
