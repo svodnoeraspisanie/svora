@@ -140,57 +140,38 @@
                                 >
                             </v-flex>
                             <v-flex xs6>
+                                <v-card flat>
+                                    <v-card-title>
+                                        Сегодня
+                                    </v-card-title>
 
-                                    <v-card flat>
-                                        <v-card-title>
-                                            Сегодня
-                                        </v-card-title>
-
-                                        <v-card-text>
-                                            <v-list shaped>
-                                                <v-list-item-group>
-                                            <v-list-item>
-                                                <v-list-item-content>
-                                                16:00 Лекция: Как потребитель XXI века диктует нам новый маркетинг
-                                                </v-list-item-content>
-                                                      </v-list-item>
-                                                 <v-list-item>
-
-                                                <v-list-item-content>
-                                                18:00 Лекция «Театр екатерининской эпохи»
-                                                </v-list-item-content>
-                                                           </v-list-item>
-
- <v-list-item>
-                                                <v-list-item-content>
-                                               20:00 Лекция "Фёдор Шехтель и московский модерн"
-                                                </v-list-item-content>
-
-                                                </v-list-item>
-                                                    </v-list-item-group>
-                                            </v-list>
-
-                                        </v-card-text>
-
-
-                                    </v-card>
-
+                                    <v-card-text>
+                                        <v-data-table
+                                            dense
+                                            :headers="headers"
+                                            :items="desserts"
+                                            :items-per-page="5"
+                                            class="elevation-1"
+                                        ></v-data-table>
+                                    </v-card-text>
+                                </v-card>
                             </v-flex>
-                                <v-flex xs6>
+                            <v-flex xs6>
+                                <v-card flat>
+                                    <v-card-title>
+                                        Завтра
+                                    </v-card-title>
 
-                                    <v-card flat>
-                                        <v-card-title>
-                                            Завтра
-                                        </v-card-title>
-
-                                        <v-card-text>
-                                            Здесь краткое описание хорошего дела
-
-                                        </v-card-text>
-
-
-                                    </v-card>
-
+                                    <v-card-text>
+                                        <v-data-table
+                                            dense
+                                            :headers="headers"
+                                            :items="desserts"
+                                            :items-per-page="5"
+                                            class="elevation-1"
+                                        ></v-data-table>
+                                    </v-card-text>
+                                </v-card>
                             </v-flex>
 
                             <v-flex xs12>
@@ -236,378 +217,418 @@
         <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 
         <script>
-            new Vue({
-                el: "#app",
-                vuetify: new Vuetify(),
-                data: () => ({
-                    dialog: false,
-                    drawer: null,
-                    city: [
-                        "Сеть",
-                        "Москва",
-                        "Санкт-Петербург",
-                        "остальная Россия"
+                        new Vue({
+                            el: "#app",
+                            vuetify: new Vuetify(),
+                            data: () => ({
+                                headers: [
+                      { text: 'Место',value: 'place' },
+                      { text: 'Время', value: 'time' },
+                      { text: 'Вид', value: 'type' },
+                      { text: 'Название', value: 'name' }
                     ],
+                    desserts: [
+                      {
+                        name: "Фёдор Шехтель и московский модерн",
+                        place:"Москва",
+                          time:"18:00",
+                          type:"Лекция"
+                      },
+                        {
+                        name: "Театр екатерининской эпохи",
+                        place:"Москва",
+                          time:"19:00",
+                          type:"Лекция"
+                      },
+                        {
+                        name: "Как потребитель XXI века диктует нам новый маркетинг",
+                        place:"Москва",
+                          time:"16:00",
+                          type:"Лекция"
+                      },
+                        {
+                        name: "Гроза-стрим: Русофобия кругом, в работе и жизни",
+                        place:"Сеть",
+                          time:"18:00",
+                          type:"Стрим"
+                      },
+                         {
+                        name: "Задумов: Смотрим и комментируем видео со Стрелковым в Розанов-клубе. Как Путин и Трамп идут к переговорам",
+                        place:"Сеть",
+                          time:"20:00",
+                          type:"Стрим"
+                      }
 
-                    items: [
-                        {
-                            text: "Лекции",
-                            icon: "mdi-nature"
-                        },
-                        {
-                            text: "Экскурсии",
-                            icon: "mdi-glass-wine"
-                        },
-                        {
-                            text: "Москва",
-                            icon: "mdi-calendar-range"
-                        },
-                        {
-                            text: "Санкт-Петербург",
-                            icon: "mdi-map-marker"
-                        },
-                        {
-                            text: "Концерты",
-                            icon: "mdi-bike"
-                        }
+
                     ],
-                    loading: false,
-                    search: "",
-                    selected: [],
+                                dialog: false,
+                                drawer: null,
+                                city: [
+                                    "Сеть",
+                                    "Москва",
+                                    "Санкт-Петербург",
+                                    "остальная Россия"
+                                ],
 
-                    today: "2019-01-08",
-                    focus: "2019-01-08",
-                    type: "month",
-                    typeToLabel: {
-                        month: "Месяц",
-                        week: "Неделя",
-                        day: "День",
-                        "4day": "4 дня"
-                    },
-                    start: null,
-                    end: null,
-                    selectedEvent: {},
-                    selectedElement: null,
-                    selectedOpen: false,
-                    prlist: [
-                        {
-                            id: 1,
-                            title: "Хорошее дело 1",
-                            text:
-                                "Много хороших и правильных слов о пользе данного дела"
-                        },
-                        {
-                            id: 1,
-                            title: "Хорошее дело 2",
-                            text:
-                                "Много хороших и правильных слов о пользе данного дела"
-                        },
-                        {
-                            id: 1,
-                            title: "Хорошее дело 3",
-                            text:
-                                "Много хороших и правильных слов о пользе данного дела"
-                        },
-                        {
-                            id: 1,
-                            title: "Хорошее дело 4",
-                            text:
-                                "Много хороших и правильных слов о пользе данного дела"
-                        },
-                        {
-                            id: 1,
-                            title: "Хорошее дело 5",
-                            text:
-                                "Много хороших и правильных слов о пользе данного дела"
-                        },
-                        {
-                            id: 1,
-                            title: "Хорошее дело 6",
-                            text:
-                                "Много хороших и правильных слов о пользе данного дела"
-                        },
-                        {
-                            id: 1,
-                            title: "Хорошее дело 7",
-                            text:
-                                "Много хороших и правильных слов о пользе данного дела"
-                        },
-                        {
-                            id: 1,
-                            title: "Хорошее дело 8",
-                            text:
-                                "Много хороших и правильных слов о пользе данного дела"
-                        },
-                        {
-                            id: 1,
-                            title: "Хорошее дело 9",
-                            text:
-                                "Много хороших и правильных слов о пользе данного дела"
-                        },
-                        {
-                            id: 1,
-                            title: "Хорошее дело 10",
-                            text:
-                                "Много хороших и правильных слов о пользе данного дела"
-                        },
-                        {
-                            id: 1,
-                            title: "Хорошее дело 11",
-                            text:
-                                "Много хороших и правильных слов о пользе данного дела"
-                        }
-                    ],
+                                items: [
+                                    {
+                                        text: "Лекции",
+                                        icon: "mdi-nature"
+                                    },
+                                    {
+                                        text: "Экскурсии",
+                                        icon: "mdi-glass-wine"
+                                    },
+                                    {
+                                        text: "Москва",
+                                        icon: "mdi-calendar-range"
+                                    },
+                                    {
+                                        text: "Санкт-Петербург",
+                                        icon: "mdi-map-marker"
+                                    },
+                                    {
+                                        text: "Концерты",
+                                        icon: "mdi-bike"
+                                    }
+                                ],
+                                loading: false,
+                                search: "",
+                                selected: [],
 
-                    events: [
-                        {
-                            name: "Vacation",
-                            details: "Going to the beach!",
-                            start: "2018-12-29",
-                            end: "2019-01-01",
-                            color: "blue"
-                        },
-                        {
-                            name: "Meeting",
-                            details:
-                                "Spending time on how we do not have enough time",
-                            start: "2019-01-07 09:00",
-                            end: "2019-01-07 09:30",
-                            color: "indigo"
-                        },
-                        {
-                            name: "Large Event",
-                            details:
-                                "This starts in the middle of an event and spans over multiple events",
-                            start: "2018-12-31",
-                            end: "2019-01-04",
-                            color: "deep-purple"
-                        },
-                        {
-                            name: "3rd to 7th",
-                            details: "Testing",
-                            start: "2019-01-03",
-                            end: "2019-01-07",
-                            color: "cyan"
-                        },
-                        {
-                            name: "Big Meeting",
-                            details: "A very important meeting about nothing",
-                            start: "2019-01-07 08:00",
-                            end: "2019-01-07 11:30",
-                            color: "red"
-                        },
-                        {
-                            name: "Another Meeting",
-                            details: "Another important meeting about nothing",
-                            start: "2019-01-07 10:00",
-                            end: "2019-01-07 13:30",
-                            color: "brown"
-                        },
-                        {
-                            name: "7th to 8th",
-                            start: "2019-01-07",
-                            end: "2019-01-08",
-                            color: "blue"
-                        },
-                        {
-                            name: "Lunch",
-                            details: "Time to feed",
-                            start: "2019-01-07 12:00",
-                            end: "2019-01-07 15:00",
-                            color: "deep-orange"
-                        },
-                        {
-                            name: "30th Birthday",
-                            details: "Celebrate responsibly",
-                            start: "2019-01-03",
-                            color: "teal"
-                        },
-                        {
-                            name: "New Year",
-                            details: "Eat chocolate until you pass out",
-                            start: "2019-01-01",
-                            end: "2019-01-02",
-                            color: "green"
-                        },
-                        {
-                            name: "Conference",
-                            details: "The best time of my life",
-                            start: "2019-01-21",
-                            end: "2019-01-28",
-                            color: "grey darken-1"
-                        },
-                        {
-                            name: "Hackathon",
-                            details: "Code like there is no tommorrow",
-                            start: "2019-01-30 23:00",
-                            end: "2019-02-01 08:00",
-                            color: "black"
-                        },
-                        {
-                            name: "event 1",
-                            start: "2019-01-14 18:00",
-                            end: "2019-01-14 19:00",
-                            color: "#4285F4"
-                        },
-                        {
-                            name: "event 2",
-                            start: "2019-01-14 18:00",
-                            end: "2019-01-14 19:00",
-                            color: "#4285F4"
-                        },
-                        {
-                            name: "event 5",
-                            start: "2019-01-14 18:00",
-                            end: "2019-01-14 19:00",
-                            color: "#4285F4"
-                        },
-                        {
-                            name: "event 3",
-                            start: "2019-01-14 18:30",
-                            end: "2019-01-14 20:30",
-                            color: "#4285F4"
-                        },
-                        {
-                            name: "event 4",
-                            start: "2019-01-14 19:00",
-                            end: "2019-01-14 20:00",
-                            color: "#4285F4"
-                        },
-                        {
-                            name: "event 6",
-                            start: "2019-01-14 21:00",
-                            end: "2019-01-14 23:00",
-                            color: "#4285F4"
-                        },
-                        {
-                            name: "event 7",
-                            start: "2019-01-14 22:00",
-                            end: "2019-01-14 23:00",
-                            color: "#4285F4"
-                        }
-                    ]
-                }),
-                computed: {
-                    allSelected() {
-                        return this.selected.length === this.items.length;
-                    },
-                    categories() {
-                        const search = this.search.toLowerCase();
+                                today: "2019-01-08",
+                                focus: "2019-01-08",
+                                type: "month",
+                                typeToLabel: {
+                                    month: "Месяц",
+                                    week: "Неделя",
+                                    day: "День",
+                                    "4day": "4 дня"
+                                },
+                                start: null,
+                                end: null,
+                                selectedEvent: {},
+                                selectedElement: null,
+                                selectedOpen: false,
+                                prlist: [
+                                    {
+                                        id: 1,
+                                        title: "Хорошее дело 1",
+                                        text:
+                                            "Много хороших и правильных слов о пользе данного дела"
+                                    },
+                                    {
+                                        id: 1,
+                                        title: "Хорошее дело 2",
+                                        text:
+                                            "Много хороших и правильных слов о пользе данного дела"
+                                    },
+                                    {
+                                        id: 1,
+                                        title: "Хорошее дело 3",
+                                        text:
+                                            "Много хороших и правильных слов о пользе данного дела"
+                                    },
+                                    {
+                                        id: 1,
+                                        title: "Хорошее дело 4",
+                                        text:
+                                            "Много хороших и правильных слов о пользе данного дела"
+                                    },
+                                    {
+                                        id: 1,
+                                        title: "Хорошее дело 5",
+                                        text:
+                                            "Много хороших и правильных слов о пользе данного дела"
+                                    },
+                                    {
+                                        id: 1,
+                                        title: "Хорошее дело 6",
+                                        text:
+                                            "Много хороших и правильных слов о пользе данного дела"
+                                    },
+                                    {
+                                        id: 1,
+                                        title: "Хорошее дело 7",
+                                        text:
+                                            "Много хороших и правильных слов о пользе данного дела"
+                                    },
+                                    {
+                                        id: 1,
+                                        title: "Хорошее дело 8",
+                                        text:
+                                            "Много хороших и правильных слов о пользе данного дела"
+                                    },
+                                    {
+                                        id: 1,
+                                        title: "Хорошее дело 9",
+                                        text:
+                                            "Много хороших и правильных слов о пользе данного дела"
+                                    },
+                                    {
+                                        id: 1,
+                                        title: "Хорошее дело 10",
+                                        text:
+                                            "Много хороших и правильных слов о пользе данного дела"
+                                    },
+                                    {
+                                        id: 1,
+                                        title: "Хорошее дело 11",
+                                        text:
+                                            "Много хороших и правильных слов о пользе данного дела"
+                                    }
+                                ],
 
-                        if (!search) return this.items;
+                                events: [
+                                    {
+                                        name: "Vacation",
+                                        details: "Going to the beach!",
+                                        start: "2018-12-29",
+                                        end: "2019-01-01",
+                                        color: "blue"
+                                    },
+                                    {
+                                        name: "Meeting",
+                                        details:
+                                            "Spending time on how we do not have enough time",
+                                        start: "2019-01-07 09:00",
+                                        end: "2019-01-07 09:30",
+                                        color: "indigo"
+                                    },
+                                    {
+                                        name: "Large Event",
+                                        details:
+                                            "This starts in the middle of an event and spans over multiple events",
+                                        start: "2018-12-31",
+                                        end: "2019-01-04",
+                                        color: "deep-purple"
+                                    },
+                                    {
+                                        name: "3rd to 7th",
+                                        details: "Testing",
+                                        start: "2019-01-03",
+                                        end: "2019-01-07",
+                                        color: "cyan"
+                                    },
+                                    {
+                                        name: "Big Meeting",
+                                        details: "A very important meeting about nothing",
+                                        start: "2019-01-07 08:00",
+                                        end: "2019-01-07 11:30",
+                                        color: "red"
+                                    },
+                                    {
+                                        name: "Another Meeting",
+                                        details: "Another important meeting about nothing",
+                                        start: "2019-01-07 10:00",
+                                        end: "2019-01-07 13:30",
+                                        color: "brown"
+                                    },
+                                    {
+                                        name: "7th to 8th",
+                                        start: "2019-01-07",
+                                        end: "2019-01-08",
+                                        color: "blue"
+                                    },
+                                    {
+                                        name: "Lunch",
+                                        details: "Time to feed",
+                                        start: "2019-01-07 12:00",
+                                        end: "2019-01-07 15:00",
+                                        color: "deep-orange"
+                                    },
+                                    {
+                                        name: "30th Birthday",
+                                        details: "Celebrate responsibly",
+                                        start: "2019-01-03",
+                                        color: "teal"
+                                    },
+                                    {
+                                        name: "New Year",
+                                        details: "Eat chocolate until you pass out",
+                                        start: "2019-01-01",
+                                        end: "2019-01-02",
+                                        color: "green"
+                                    },
+                                    {
+                                        name: "Conference",
+                                        details: "The best time of my life",
+                                        start: "2019-01-21",
+                                        end: "2019-01-28",
+                                        color: "grey darken-1"
+                                    },
+                                    {
+                                        name: "Hackathon",
+                                        details: "Code like there is no tommorrow",
+                                        start: "2019-01-30 23:00",
+                                        end: "2019-02-01 08:00",
+                                        color: "black"
+                                    },
+                                    {
+                                        name: "event 1",
+                                        start: "2019-01-14 18:00",
+                                        end: "2019-01-14 19:00",
+                                        color: "#4285F4"
+                                    },
+                                    {
+                                        name: "event 2",
+                                        start: "2019-01-14 18:00",
+                                        end: "2019-01-14 19:00",
+                                        color: "#4285F4"
+                                    },
+                                    {
+                                        name: "event 5",
+                                        start: "2019-01-14 18:00",
+                                        end: "2019-01-14 19:00",
+                                        color: "#4285F4"
+                                    },
+                                    {
+                                        name: "event 3",
+                                        start: "2019-01-14 18:30",
+                                        end: "2019-01-14 20:30",
+                                        color: "#4285F4"
+                                    },
+                                    {
+                                        name: "event 4",
+                                        start: "2019-01-14 19:00",
+                                        end: "2019-01-14 20:00",
+                                        color: "#4285F4"
+                                    },
+                                    {
+                                        name: "event 6",
+                                        start: "2019-01-14 21:00",
+                                        end: "2019-01-14 23:00",
+                                        color: "#4285F4"
+                                    },
+                                    {
+                                        name: "event 7",
+                                        start: "2019-01-14 22:00",
+                                        end: "2019-01-14 23:00",
+                                        color: "#4285F4"
+                                    }
+                                ]
+                            }),
+                            computed: {
+                                allSelected() {
+                                    return this.selected.length === this.items.length;
+                                },
+                                categories() {
+                                    const search = this.search.toLowerCase();
 
-                        return this.items.filter(item => {
-                            const text = item.text.toLowerCase();
+                                    if (!search) return this.items;
 
-                            return text.indexOf(search) > -1;
+                                    return this.items.filter(item => {
+                                        const text = item.text.toLowerCase();
+
+                                        return text.indexOf(search) > -1;
+                                    });
+                                },
+                                selections() {
+                                    const selections = [];
+
+                                    for (const selection of this.selected) {
+                                        selections.push(this.items[selection]);
+                                    }
+
+                                    return selections;
+                                },
+                                title() {
+                                    const { start, end } = this;
+                                    if (!start || !end) {
+                                        return "";
+                                    }
+
+                                    const startMonth = this.monthFormatter(start);
+                                    const endMonth = this.monthFormatter(end);
+                                    const suffixMonth =
+                                        startMonth === endMonth ? "" : endMonth;
+
+                                    const startYear = start.year;
+                                    const endYear = end.year;
+                                    const suffixYear = startYear === endYear ? "" : endYear;
+
+                                    const startDay = start.day + this.nth(start.day);
+                                    const endDay = end.day + this.nth(end.day);
+
+                                    switch (this.type) {
+                                        case "month":
+                                            return `${startMonth} ${startYear}`;
+                                        case "week":
+                                        case "4day":
+                                            return `${startMonth} ${startDay} ${startYear} - ${suffixMonth} ${endDay} ${suffixYear}`;
+                                        case "day":
+                                            return `${startMonth} ${startDay} ${startYear}`;
+                                    }
+                                    return "";
+                                },
+                                monthFormatter() {
+                                    return this.$refs.calendar.getFormatter({
+                                        timeZone: "UTC",
+                                        month: "long"
+                                    });
+                                }
+                            },
+                            methods: {
+                                viewDay({ date }) {
+                                    this.focus = date;
+                                    this.type = "day";
+                                },
+                                getEventColor(event) {
+                                    return event.color;
+                                },
+                                setToday() {
+                                    this.focus = this.today;
+                                },
+                                prev() {
+                                    this.$refs.calendar.prev();
+                                },
+                                next() {
+                                    this.$refs.calendar.next();
+                                },
+                                showEvent({ nativeEvent, event }) {
+                                    const open = () => {
+                                        this.selectedEvent = event;
+                                        this.selectedElement = nativeEvent.target;
+                                        setTimeout(() => (this.selectedOpen = true), 10);
+                                    };
+
+                                    if (this.selectedOpen) {
+                                        this.selectedOpen = false;
+                                        setTimeout(open, 10);
+                                    } else {
+                                        open();
+                                    }
+
+                                    nativeEvent.stopPropagation();
+                                },
+                                updateRange({ start, end }) {
+                                    // You could load events from an outside source (like database) now that we have the start and end dates on the calendar
+                                    this.start = start;
+                                    this.end = end;
+                                },
+                                nth(d) {
+                                    return d > 3 && d < 21
+                                        ? "th"
+                                        : [
+                                              "th",
+                                              "st",
+                                              "nd",
+                                              "rd",
+                                              "th",
+                                              "th",
+                                              "th",
+                                              "th",
+                                              "th",
+                                              "th"
+                                          ][d % 10];
+                                }
+                            },
+                            watch: {
+                                selected() {
+                                    this.search = "";
+                                }
+                            }
                         });
-                    },
-                    selections() {
-                        const selections = [];
-
-                        for (const selection of this.selected) {
-                            selections.push(this.items[selection]);
-                        }
-
-                        return selections;
-                    },
-                    title() {
-                        const { start, end } = this;
-                        if (!start || !end) {
-                            return "";
-                        }
-
-                        const startMonth = this.monthFormatter(start);
-                        const endMonth = this.monthFormatter(end);
-                        const suffixMonth =
-                            startMonth === endMonth ? "" : endMonth;
-
-                        const startYear = start.year;
-                        const endYear = end.year;
-                        const suffixYear = startYear === endYear ? "" : endYear;
-
-                        const startDay = start.day + this.nth(start.day);
-                        const endDay = end.day + this.nth(end.day);
-
-                        switch (this.type) {
-                            case "month":
-                                return `${startMonth} ${startYear}`;
-                            case "week":
-                            case "4day":
-                                return `${startMonth} ${startDay} ${startYear} - ${suffixMonth} ${endDay} ${suffixYear}`;
-                            case "day":
-                                return `${startMonth} ${startDay} ${startYear}`;
-                        }
-                        return "";
-                    },
-                    monthFormatter() {
-                        return this.$refs.calendar.getFormatter({
-                            timeZone: "UTC",
-                            month: "long"
-                        });
-                    }
-                },
-                methods: {
-                    viewDay({ date }) {
-                        this.focus = date;
-                        this.type = "day";
-                    },
-                    getEventColor(event) {
-                        return event.color;
-                    },
-                    setToday() {
-                        this.focus = this.today;
-                    },
-                    prev() {
-                        this.$refs.calendar.prev();
-                    },
-                    next() {
-                        this.$refs.calendar.next();
-                    },
-                    showEvent({ nativeEvent, event }) {
-                        const open = () => {
-                            this.selectedEvent = event;
-                            this.selectedElement = nativeEvent.target;
-                            setTimeout(() => (this.selectedOpen = true), 10);
-                        };
-
-                        if (this.selectedOpen) {
-                            this.selectedOpen = false;
-                            setTimeout(open, 10);
-                        } else {
-                            open();
-                        }
-
-                        nativeEvent.stopPropagation();
-                    },
-                    updateRange({ start, end }) {
-                        // You could load events from an outside source (like database) now that we have the start and end dates on the calendar
-                        this.start = start;
-                        this.end = end;
-                    },
-                    nth(d) {
-                        return d > 3 && d < 21
-                            ? "th"
-                            : [
-                                  "th",
-                                  "st",
-                                  "nd",
-                                  "rd",
-                                  "th",
-                                  "th",
-                                  "th",
-                                  "th",
-                                  "th",
-                                  "th"
-                              ][d % 10];
-                    }
-                },
-                watch: {
-                    selected() {
-                        this.search = "";
-                    }
-                }
-            });
         </script>
 
         <style scoped></style>
