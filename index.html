@@ -56,6 +56,9 @@
                     <li class="nav-item">
                         <a class="nav-link" id="rest-tab" data-toggle="tab" href="#rest" role="tab" aria-controls="rest" aria-selected="false">в остальной России</a>
                     </li>
+                    <li class="nav-item d-sm-none">
+                        <a class="nav-link"  data-toggle="modal" data-target="#helpmodal" href=""><b>Справка</b></a>
+                    </li>
                 </ul>
 
 
@@ -67,7 +70,9 @@
     </nav>
     <!--/.Navbar-->
 
-
+<button type="button" class="btn btn-primary d-none d-sm-block" 
+    style="position: absolute; top:14px; right:14px;z-index: 10000; width:40px; height:40px;" 
+    data-toggle="modal" data-target="#helpmodal">?</button>
 
 
     <div class="modal fade" id="helpmodal" tabindex="-1" role="dialog" aria-labelledby="helpmodal" aria-hidden="true">
