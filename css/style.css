@@ -270,7 +270,7 @@
         opacity: 0;
         }
         #tabs.mobile-active {
-        height: 8rem;
+        height: 10rem;
         padding-top: 1rem;
         }
         #tabs.mobile-active .nav-item{
@@ -300,4 +300,7 @@
         #tabs.mobile-active .nav-item:nth-of-type(4){
         transition: 0.2s ease-out 0.4s;
         }
+        #tabs.mobile-active .nav-item:nth-of-type(5){
+            transition: 0.2s ease-out 0.5s;
+            }
     }
