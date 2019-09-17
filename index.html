@@ -360,6 +360,10 @@
     <script>
         
         $(document).ready(function(){$("#myToast").toast('show');});
+        jQuery(this).toggleClass('mobile-active');
+            jQuery('#tabs').first().toggleClass('mobile-active');
+       
+
         jQuery('#toggle-menu').on('click', function() {
             jQuery(this).toggleClass('mobile-active');
             jQuery('#tabs').first().toggleClass('mobile-active');
