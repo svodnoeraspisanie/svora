@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Сводное Расписание</title>
-    <meta name="description" content="СВОРА: Сводное Расписание событий русской культуры, истории и политики в Сети, Москве, Санкт-Петербурге и остальной России">
+    <meta name="description" content="СВОРА: Сводное Расписание событий русской культуры, истории и политики в Сети, Москве и Санкт-Петербурге.">
     <meta name="keywords" content="свора, смотреть, кино, фильм, собак, 2006, культура, политика, история, сводное, расписание, москва, сеть, сантк-петербург, лекции, концерты, выступления, митинг, выборы">
 
     <link rel="stylesheet" href="css/bootstrap.min.css" >
@@ -52,9 +52,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="spb-tab" data-toggle="tab" href="#spb" role="tab" aria-controls="spb" aria-selected="false">в Санкт-Петербурге</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="rest-tab" data-toggle="tab" href="#rest" role="tab" aria-controls="rest" aria-selected="false">в остальной России</a>
                     </li>
                     <li class="nav-item d-sm-none">
                         <a class="nav-link"  data-toggle="modal" data-target="#helpmodal" href=""><b>Справка</b></a>
@@ -131,18 +128,6 @@
                         </button>
 
                     </div>
-                    <br>
-                    <span>события в остальной России - </span>
-                    <div class="d-inline">
-
-                        <input type="text" id="rest-cal" class="adr" value="https://calendar.google.com/calendar/ical/fsnvudft85si8k73nrki6i1sv4%40group.calendar.google.com/public/basic.ics">
-                        <button onclick="document.getElementById('rest-cal').select();document.execCommand('copy');" title="Скопировать в буфер обмена">
-                            <i>Скопировать</i>
-                        </button>
-
-                    </div>
-
-
                     <hr>
                     <h5>Как добавить общедоступный календарь в приложение на смартфоне?</h5>
                     <p>
@@ -300,40 +285,7 @@
 
 
                 </div>
-                <div class="tab-pane fade h-100" id="rest" role="tabpanel" aria-labelledby="rest-tab">
-
-
-                    <div class="card d-none d-sm-block ">
-
-                        <div class="card-body calendar-big ">
-                            <h5 class="card-title " style="position: absolute;">События в остальной России. Выступления, занятия, собрания.</h5>
-                            <div class="calWrapper ">
-                                <iframe src="https://calendar.google.com/calendar/b/1/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FMoscow&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;src=ZnNudnVkZnQ4NXNpOGs3M25ya2k2aTFzdjRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp" style="border-width:0; padding-top: 2.1rem;" allowfullscreen allowtransparency="true" frameborder="0" scrolling="no"></iframe>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="card-body d-sm-none calendar-small h-100">
-                        <h5 class="card-title w-100 text-center" style="position: absolute;">События в остальной России.</h5>
-                        <div class="calWrapper h-100 w-100">
-                            <iframe src="https://calendar.google.com/calendar/b/1/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FMoscow&amp;showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=AGENDA&amp;showDate=0&amp;showTz=1&amp;src=ZnNudnVkZnQ4NXNpOGs3M25ya2k2aTFzdjRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp" style="border-width:0; padding-top: 2rem;" allowfullscreen allowtransparency="true" frameborder="0" scrolling="no"></iframe>
-                        </div>
-
-
-
-                    </div>
-
-
-
-
-
-
-
-
-
-
-                </div>
+                
             </div>
         </div>
         
@@ -361,8 +313,8 @@
         
         $(document).ready(function(){$("#myToast").toast('show');});
         
-            jQuery('#tabs').first().toggleClass('mobile-active');
-       jQuery('#toggle-menu').toggleClass('mobile-active');
+        jQuery('#tabs').first().toggleClass('mobile-active');
+        jQuery('#toggle-menu').toggleClass('mobile-active');
 
 
         jQuery('#toggle-menu').on('click', function() {
@@ -374,6 +326,9 @@
             jQuery('#toggle-menu').removeClass('mobile-active');
             jQuery('#tabs').first().removeClass('mobile-active');
         });
+
+     
+
 
     </script>
 

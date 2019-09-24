@@ -271,7 +271,7 @@
         display: none;
         }
         #tabs.mobile-active {
-        height: 10rem;
+        height: 8rem;
         padding-top: 1rem;
         }
         #tabs.mobile-active .nav-item{
